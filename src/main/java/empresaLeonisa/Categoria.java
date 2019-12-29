@@ -7,6 +7,8 @@ public class Categoria {
     private String color;
     private String material;
 
+    public Categoria() {
+    }
 
     public Categoria(String tipoPrenda, String talla, String color, String material) {
         this.tipoPrenda = tipoPrenda;
