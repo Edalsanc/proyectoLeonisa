@@ -22,9 +22,9 @@ public class PedidoTest {
     @Before
     public void setUp() throws Exception {
         pedido = new Vector<Object>();
-        pedidoLeonisa = new Pedido (5);
-        pedidoLeo=new Pedido(8);
-        pedidoTeen= new Pedido(1);
+        pedidoLeonisa = new Pedido ();
+        pedidoLeo=new Pedido();
+        pedidoTeen= new Pedido();
         Pedido p = new Pedido();
 
         leonisa = new Leonisa("01", 25000, "medias", "m", "Negro", "Algodón");
@@ -54,5 +54,18 @@ public class PedidoTest {
     public void testAsignarProducto1() {
         boolean asignadoTeen = pedido.contains(teen);
         Assert.assertTrue("No se ha asignado un producto 'Teen' al pedido", asignadoTeen);
+    }
+
+    @Test
+    public void totalCompra() {
+
+    }
+
+    @Test
+    public void testTotalCompra() {
+    }
+
+    @Test
+    public void testTotalCompra1() {
     }
 }
