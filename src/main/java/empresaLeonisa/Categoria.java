@@ -2,14 +2,11 @@ package empresaLeonisa;
 
 public class Categoria {
 
-    private String tipoPrenda;
-    private String talla;
+    private String tipoPrenda ;
+    private String talla ;
     private String color;
     private String material;
 
-
-    public Categoria() {
-    }
 
     public Categoria(String tipoPrenda, String talla, String color, String material) {
         this.tipoPrenda = tipoPrenda;
@@ -33,7 +30,5 @@ public class Categoria {
     public String getMaterial() {
         return material;
     }
-
-
 
 }
