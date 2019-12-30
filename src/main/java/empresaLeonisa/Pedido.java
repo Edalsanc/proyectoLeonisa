@@ -6,29 +6,49 @@ public class Pedido {
     private String mediDePago;
     private double descuento;
     private int prontoPago;
-    private Categoria cat = new Categoria();
-    private int cantidadUnidad ;
+    private Categoria cat;
+    private int cantidadUnidad;
+    private Producto pro;
 
-    Vector<Object> pedido = new Vector<Object>();
-    Vector<Object> total = new Vector<Object>();
+    Vector<Producto> pedido = new Vector<Producto>();
+    Vector<Object> totalLeonisa = new Vector<Object>();
+    Vector<Object> totalLeo = new Vector<Object>();
+    Vector<Object> totalTeen = new Vector<Object>();
+    Vector<Object> totalCompra = new Vector<Object>();
 
-    public Pedido(int cantidadUnidad, String mediDePago, double descuento, int prontoPago,Categoria cat) {
+
+    public Pedido(Producto pro) {
+        this.pro = pro;
+    }
+
+    public Pedido(int cantidadUnidad, String mediDePago, double descuento, int prontoPago, Categoria cat) {
 
         this.cantidadUnidad = cantidadUnidad;
         this.mediDePago = mediDePago;
         this.descuento = descuento;
         this.prontoPago = prontoPago;
         this.cat = cat;
-
     }
-
-
 
 
     public Pedido() {
     }
 
+    public Vector<Producto> getPedido() {
+        return pedido;
+    }
 
+    public Vector<Object> getTotalLeonisa() {
+        return totalLeonisa;
+    }
+
+    public Vector<Object> getTotalLeo() {
+        return totalLeo;
+    }
+
+    public Vector<Object> getTotalTeen() {
+        return totalTeen;
+    }
 
     public void asignarProducto(Leonisa leonisa) {
 
@@ -45,23 +65,44 @@ public class Pedido {
         pedido.add(teen);
     }
 
-    public Object totalCompra(Leonisa leonisa,int cantidadUnidad){
+    public void CompraLeonisa(Leonisa leonisa, int cantidadUnidad) {
 
-         total.add(cantidadUnidad*leonisa.getPrecio());
-        return total;
+        totalLeonisa.add(cantidadUnidad * leonisa.getPrecio());
+
     }
 
-    public Object totalCompra(Leo leo,int cantidadUnidad){
+    public void CompraLeo(Leo leo, int cantidadUnidad) {
 
-        total.add(cantidadUnidad*leo.getPrecio());
-        return total;
+        totalLeo.add(cantidadUnidad * leo.getPrecio());
+
     }
 
-    public Object totalCompra(Teen teen,int cantidadUnidad){
+    public void CompraTeen(Teen teen, int cantidadUnidad) {
 
-        total.add(cantidadUnidad*teen.getPrecio());
-        return total;
+        totalTeen.add(cantidadUnidad * teen.getPrecio());
+
     }
 
+    public Producto buscarProducto(String ciu) {
+        for (Producto pro : pedido) {
+            if (pro.getCiu() == ciu) {
+                return pro;
+            }
+        }
+        return null;
+
+    }
+
+    public Object totalCategoria() {
+
+        while (this.pedido != null) {
+
+            totalCompra.add(totalLeonisa);
+            totalCompra.add(totalLeo);
+            totalCompra.add(totalTeen);
+
+        }
+        return totalCompra;
+    }
 
 }
