@@ -3,9 +3,7 @@ package empresaLeonisa;
 import java.util.Vector;
 
 public class Pedido {
-    private String mediDePago;
-    private double descuento;
-    private int prontoPago;
+
     private Categoria cat;
     private int cantidadUnidad;
     private Producto pro;
@@ -21,15 +19,11 @@ public class Pedido {
         this.pro = pro;
     }
 
-    public Pedido(int cantidadUnidad, String mediDePago, double descuento, int prontoPago, Categoria cat) {
-
+    public Pedido(int cantidadUnidad, Categoria cat, Producto pro) {
         this.cantidadUnidad = cantidadUnidad;
-        this.mediDePago = mediDePago;
-        this.descuento = descuento;
-        this.prontoPago = prontoPago;
+        this.pro = pro;
         this.cat = cat;
     }
-
 
     public Pedido() {
     }
@@ -93,7 +87,7 @@ public class Pedido {
 
     }
 
-    public Object totalCategoria() {
+    public Object totalCompra(Producto pedido) {
 
         while (this.pedido != null) {
 
